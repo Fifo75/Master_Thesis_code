@@ -1,71 +1,50 @@
 # Master_Thesis_code
-\documentclass[11pt, a4paper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[margin=1in]{geometry}
-\usepackage{xcolor}
-\usepackage{hyperref}
-\usepackage{enumitem}
+# Temporal Network, Centrality Measures, and Ordinary Differential Equations
 
-% Setup hyperlinks
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    filecolor=magenta,      
-    urlcolor=cyan,
-}
+![MATLAB](https://img.shields.io/badge/Language-MATLAB-orange.svg)
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
-% Custom styling for file names to look like code
-\newcommand{\code}[1]{\texttt{\textbf{\textcolor{black!80}{#1}}}}
+## 📌 Overview
 
-\title{\textbf{Project Documentation: Temporal Networks and Centrality}}
-\author{}
-\date{}
+This repository contains the source code for the Master's thesis titled **"Temporal network, centrality measures, and ordinary differential equations"**.
 
-\begin{document}
+The project implements various algorithms to analyze temporal networks, specifically focusing on receiver centralities using Katz and matrix exponential methods. It explores the intersection of network theory and differential equations to model node importance over time.
 
-\maketitle
+## 📂 Project Structure
 
-\section*{Overview}
-This repository contains the source code for the Master's thesis titled \textbf{\textit{``Temporal network, centrality measures, and ordinary differential equations''}}.
+The core implementation is written in **MATLAB**. All source files are located in the `Thesis_code` directory.
 
-The core implementation is written in \textbf{MATLAB}. All source files can be found in the directory \code{Thesis\_code}.
+### Prerequisites
 
-\section*{Prerequisites}
 For the optimal execution of this code, the following MATLAB library is required:
-\begin{itemize}
-    \item \code{chebfun} (Open-source software for numerical computing with functions)
-\end{itemize}
+* **[Chebfun](https://www.chebfun.org/)** – An open-source software system for numerical computing with functions.
 
-\section*{File Descriptions}
-The \code{Thesis\_code} directory contains the following files and functions:
+## 📜 File Descriptions
 
-\begin{description}[style=nextline, leftmargin=1.5em, font=\ttfamily\bfseries]
+The `Thesis_code` directory contains the following scripts and functions:
 
-    \item[temporal\_node\_evolution]
-    This function calculates receiver centralities for both Katz and matrix exponential methods. It generates summary plots representing the temporal node evolution for each of the centralities.
+| File Name | Description |
+| :--- | :--- |
+| **`temporal_node_evolution.m`** | Calculates receiver centralities (Katz and matrix exponential) and generates summary plots representing the temporal evolution of node importance. |
+| **`load_FBsoc_dataset.m`** | Loads the `FBsoc` dataset and constructs adjacency matrices according to the specified time granularity (month, week, or day). |
+| **`lagrange_cardinal_basis.m`** | Calculates function handles for the Lagrange Cardinal Basis using Barycentric Interpolation for equidistant points. |
+| **`interpolation_solver.m`** | Computes the matrix version of the Time-Ordered Exponential based on Section 3.5, utilizing the theoretical framework established in Chapter 3. |
+| **`init.m`** | The main initialization script. It serves as the base for all experiments presented in the thesis, divided into specific sections. |
+| **`genCoeffMatrix_SP_interval.m`** | Computes the coefficient matrix of $f(t)\Theta(t-s)$ (where $\Theta$ is the Heaviside theta function) within a basis of orthonormal Legendre polynomials. |
+| **`exact_sol.m`** | Computes the exact solution of the Time-Ordered Exponential using the matrix exponential for the piecewise constant case, or `ode45` for the continuous case. |
+| **`FBsoc.txt`** | The raw text file containing the temporal edge data for the FBsoc dataset. |
 
-    \item[load\_FBsoc\_dataset]
-    This function loads the \code{FBsoc} dataset and constructs the adjacency matrices according to the specified time granularity (month, week, or day).
+## 🚀 Usage
 
-    \item[lagrange\_cardinal\_basis]
-    Calculates the function handles for the Lagrange Cardinal Basis using Barycentric Interpolation for equidistant points.
+1.  Ensure you have MATLAB installed.
+2.  Install the **Chebfun** library and add it to your MATLAB path.
+3.  Clone this repository:
+    ```bash
+    git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
+    ```
+4.  Navigate to the `Thesis_code` directory.
+5.  Run the `init.m` script to execute the experiments.
 
-    \item[interpolation\_solver]
-    This function computes the matrix version of the Time-Ordered Exponential based on Section 3.5, utilizing the theoretical framework established in Chapter 3 of the thesis.
+## ✍️ Author
 
-    \item[init]
-    This is the base script for all experiments presented in the thesis. The individual experiments are divided into sections within this file.
-
-    \item[genCoeffMatrix\_SP\_interval]
-    Computes the coefficient matrix of $f(t)\Theta(t-s)$, where $f$ is a smooth function and $\Theta$ is the Heaviside theta function, within a basis of orthonormal Legendre polynomials.
-
-    \item[FBsoc.txt]
-    The raw text file containing all data for the FBsoc dataset.
-
-    \item[exact\_sol]
-    This function computes the exact solution of the Time-Ordered Exponential using the matrix exponential for the piecewise constant case, or \code{ode45} for the continuous case.
-
-\end{description}
-
-\end{document}
+* **[Filip Miroslav Kucka]** - *Master's Thesis*
