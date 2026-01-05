@@ -1,4 +1,3 @@
-# Master_Thesis_code
 # Temporal Network, Centrality Measures, and Ordinary Differential Equations
 
 ![MATLAB](https://img.shields.io/badge/Language-MATLAB-orange.svg)
