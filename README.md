@@ -1,17 +1,71 @@
 # Master_Thesis_code
+\documentclass[11pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
 
-This file represent the code for the master thesis called "Temporal network, centrality measures, and ordinary differential equations".
-The code is written in MATLAB. The code can be find in file called: Thesis_code
+% Setup hyperlinks
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
 
-The prerequisity for optimal run of the code is to have matlab library called "chebfun".
+% Custom styling for file names to look like code
+\newcommand{\code}[1]{\texttt{\textbf{\textcolor{black!80}{#1}}}}
 
-Description of the files in Thesis_code:
-temporal_node_evolution: This function calculates receiver centralities of Katz and matrix exponential and plots the summary plots representing temporal node evolution for each of the centralities.
-load_FBsoc_dataset: This function loads the FBsoc dataset and creates the adjacency matrices according to the time granularity (month, week, day).
-lagrange_cardinal_basis: Calculates the function handles for the Lagrange Cardinal Basis using Barycentric Interpolation for EQUIDISTANT POINTS.
-interpoladion_solver: This function computes the matrix version of the Time-Ordered Exponential based on the section 3.5 using all the theory from chapter 3 from the thesis.
-init: This file is base to all the experiments from the thesis. The individual experiments are divided to the sections.
-genCoeffMatrix_SP_interval: Computes the coefficient matrix of f(t)*Theta(t-s), with a smooth function f and the Heaviside theta function Theta, in a basis of orthonormal Legendre polynomials.
-FBsoc.txt: The text file containing all the data of the FBsoc dataset.
-exact_sol: This function conputes exact solution of the Time-Order Exponential using matrix expoential in piece wise constant case or ode45 in continuous case
+\title{\textbf{Project Documentation: Temporal Networks and Centrality}}
+\author{}
+\date{}
 
+\begin{document}
+
+\maketitle
+
+\section*{Overview}
+This repository contains the source code for the Master's thesis titled \textbf{\textit{``Temporal network, centrality measures, and ordinary differential equations''}}.
+
+The core implementation is written in \textbf{MATLAB}. All source files can be found in the directory \code{Thesis\_code}.
+
+\section*{Prerequisites}
+For the optimal execution of this code, the following MATLAB library is required:
+\begin{itemize}
+    \item \code{chebfun} (Open-source software for numerical computing with functions)
+\end{itemize}
+
+\section*{File Descriptions}
+The \code{Thesis\_code} directory contains the following files and functions:
+
+\begin{description}[style=nextline, leftmargin=1.5em, font=\ttfamily\bfseries]
+
+    \item[temporal\_node\_evolution]
+    This function calculates receiver centralities for both Katz and matrix exponential methods. It generates summary plots representing the temporal node evolution for each of the centralities.
+
+    \item[load\_FBsoc\_dataset]
+    This function loads the \code{FBsoc} dataset and constructs the adjacency matrices according to the specified time granularity (month, week, or day).
+
+    \item[lagrange\_cardinal\_basis]
+    Calculates the function handles for the Lagrange Cardinal Basis using Barycentric Interpolation for equidistant points.
+
+    \item[interpolation\_solver]
+    This function computes the matrix version of the Time-Ordered Exponential based on Section 3.5, utilizing the theoretical framework established in Chapter 3 of the thesis.
+
+    \item[init]
+    This is the base script for all experiments presented in the thesis. The individual experiments are divided into sections within this file.
+
+    \item[genCoeffMatrix\_SP\_interval]
+    Computes the coefficient matrix of $f(t)\Theta(t-s)$, where $f$ is a smooth function and $\Theta$ is the Heaviside theta function, within a basis of orthonormal Legendre polynomials.
+
+    \item[FBsoc.txt]
+    The raw text file containing all data for the FBsoc dataset.
+
+    \item[exact\_sol]
+    This function computes the exact solution of the Time-Ordered Exponential using the matrix exponential for the piecewise constant case, or \code{ode45} for the continuous case.
+
+\end{description}
+
+\end{document}
