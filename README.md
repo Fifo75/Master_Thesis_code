@@ -48,3 +48,4 @@ The `Thesis_code` directory contains the following scripts and functions:
 ## ✍️ Author
 
 * **[Filip Miroslav Kucka]** - *Master's Thesis*
+* **[Stefano Pozza, Dr., PH.D.]** - *Supervisor and creator of the genCoeffMatrix_SP_interval.m function*
