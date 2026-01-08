@@ -18,8 +18,8 @@ function temporal_node_evolution(N, matrices, alpha_one_sol, alpha_j_sol, import
 
 % Matrices where results of the Katz and matrix exponential receiver centralities
 % will be stored
-residual_receiver_results = zeros(N, length(points));
-exponential_receiver_results = zeros(N, length(points));
+residual_broadcast_results = zeros(N, length(points));
+exponential_broadcast_results = zeros(N, length(points));
 
 % Here we calculate the maximum value of alpha that can be used 
 % for Katz receiver centrality
@@ -44,19 +44,19 @@ for i = 1:length(points)
         Q_residual = inv(eye(N) - alpha*matrices{1});
         Q_exponential = expm(matrices{1});
     else
-        Q_residual = Q_residual * inv(eye(N) - alpha*matrices{i});
+        Q_residual = Q_residual * (inv(eye(N) - alpha*matrices{i}));
         Q_exponential = Q_exponential * expm(matrices{i});
     end
 
-    residual_receiver_results(:,i) = Q_residual.' * ones(N,1);
-    exponential_receiver_results(:,i) = Q_exponential.' * ones(N,1);
+    residual_receiver_results(:,i) = Q_residual * ones(N,1);
+    exponential_receiver_results(:,i) = Q_exponential * ones(N,1);
 end
 
 % Evolution of the values of the important nodes
 % Firstly we create tensor concatenating all the result matrices 
 % from the four centralities
 nodes_values = zeros(length(important_nodes), length(points), 4);
-results = cat(3, alpha_one_sol, alpha_j_sol, residual_receiver_results, exponential_receiver_results);
+results = cat(3, alpha_one_sol, alpha_j_sol, residual_broadcast_results, exponential_broadcast_results);
 
 % Here takes only results for the important nodes
 [~,~,dimension] = size(nodes_values);
@@ -81,4 +81,5 @@ for i = 1:2
         counter = counter + 1;
     end
 end
+
 end
