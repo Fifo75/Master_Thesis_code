@@ -1,5 +1,5 @@
 function temporal_node_evolution(N, matrices, alpha_one_sol, alpha_j_sol, important_nodes, points)
-% This function calculates receiver centralities of 
+% This function calculates broadcast centralities of 
 % Katz and matrix exponential and plots the summary plots 
 % representing temporal node evolution for each of the centralities.
 % INPUT:
@@ -16,7 +16,7 @@ function temporal_node_evolution(N, matrices, alpha_one_sol, alpha_j_sol, import
 
 
 
-% Matrices where results of the Katz and matrix exponential receiver centralities
+% Matrices where results of the Katz and matrix exponential broadcast centralities
 % will be stored
 residual_broadcast_results = zeros(N, length(points));
 exponential_broadcast_results = zeros(N, length(points));
@@ -48,8 +48,8 @@ for i = 1:length(points)
         Q_exponential = Q_exponential * expm(matrices{i});
     end
 
-    residual_receiver_results(:,i) = Q_residual * ones(N,1);
-    exponential_receiver_results(:,i) = Q_exponential * ones(N,1);
+    residual_broadcast_results(:,i) = Q_residual * ones(N,1);
+    exponential_broadcast_results(:,i) = Q_exponential * ones(N,1);
 end
 
 % Evolution of the values of the important nodes
@@ -81,5 +81,5 @@ for i = 1:2
         counter = counter + 1;
     end
 end
-
 end
+
