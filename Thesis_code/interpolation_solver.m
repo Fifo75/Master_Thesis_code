@@ -1,5 +1,5 @@
 function output = interpolation_solver(N,m,points,matrices,fV,longer_walks)
-% This function computes the matrix version of the Time-Ordered Exponential
+% This function computes the matrix version of the *-Total Communicability
 % based on the section 3.5 using all the theory from chapter 3
 % INPUT:
 %     N = number of nodes in the network
@@ -8,7 +8,7 @@ function output = interpolation_solver(N,m,points,matrices,fV,longer_walks)
 %     matrices = adjacency matrices in each time point
 %     fv = cell with the functions f(t) of interest
 %     longer_walks = True/False parameter that represent if we want classic
-%                    alpha_j = 1 or alpha_j = j version of TOE
+%                    alpha_j = 1 or alpha_j = j version of *-Total Communicability
 
 % OUTPUT:
 %     output = matrix of the node weights in each time point for each node
@@ -39,7 +39,7 @@ end
 % Right hand side
 b = kron(e,phim1);
 
-% Here we solve TOE depending if we want alpha_j = 1 or alpha_j = j
+% Here we solve *-Total Communicability depending if we want alpha_j = 1 or alpha_j = j
 % in vectorized way
 aprod = @(V) calculate_sum_term(V, matrices, Fcell, N, m);
 if longer_walks == 0
@@ -96,4 +96,5 @@ function output = calculate_sum_term(V, matrices, Fcell, N, m)
     end
 
     output = leading_term - sum_term;
+
 end
