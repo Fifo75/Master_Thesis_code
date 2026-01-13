@@ -43,7 +43,7 @@ fV = lagrange_cardinal_basis(rescaled_points); % fV{j} is the handle for L_{j-1}
 
 disp("Lagrangian polynomials calculated");
 
-% In the code bellow we solve the TOE centrality for 
+% In the code bellow we solve the *-Total Communicability centrality for 
 % alpha_j = 1 and alpha_j = j
 alpha_one_sol = interpolation_solver(N,m,rescaled_points,matrices,fV,0);
 alpha_j_sol = interpolation_solver(N,m,rescaled_points,matrices,fV,1);
@@ -52,7 +52,7 @@ disp("Interpolation solution calculated");
 % Set of nodes we want to study
 important_nodes = [4, 8, 9, 10, 14];
 %%
-% Function that calculates receiver centralities 
+% Function that calculates broadcast centralities 
 % for Katz and matrix exponential 
 % + it creates plots of the temporal evaluation of the nodes
 temporal_node_evolution(N, matrices, alpha_one_sol, alpha_j_sol, important_nodes, rescaled_points)
@@ -88,13 +88,13 @@ rescaled_points = (2*points/points(end)) - 1;
 fV = lagrange_cardinal_basis(rescaled_points); % fV{j} is the handle for L_{j-1}(t)
 disp("Lagrangian polynomials calculated");
 
-% In the code bellow we solve the TOE centrality for 
+% In the code bellow we solve the *-Total Communicability for 
 % alpha_j = 1 and alpha_j = j in constant case
 alpha_one_sol_matrices_constant = interpolation_solver(N,m,rescaled_points,matrices_constant,fV,0);
 alpha_j_sol_matrices_constant = interpolation_solver(N,m,rescaled_points,matrices_constant,fV,1);
 disp("Interpolation solution calculated for matrices_constant");
 
-% In the code bellow we solve the TOE centrality for 
+% In the code bellow we solve the *-Total Communicability for 
 % alpha_j = 1 and alpha_j = j in empty case
 alpha_one_sol_matrices_empty = interpolation_solver(N,m,rescaled_points,matrices_empty,fV,0);
 alpha_j_sol_matrices_empty = interpolation_solver(N,m,rescaled_points,matrices_empty,fV,1);
@@ -134,7 +134,7 @@ for i = 1:n
     start_node = start_node + 1;
 end
 
-% In the code bellow we solve the TOE centrality for 
+% In the code bellow we solve the *-Total Communicability for 
 % alpha_j = 1 and alpha_j = j
 alpha_one_sol = interpolation_solver(17,m,rescaled_points,matrices,fV,0);
 alpha_j_sol = interpolation_solver(17,m,rescaled_points,matrices,fV,1);
@@ -149,7 +149,7 @@ alpha_one_sol_selected_rows = alpha_one_sol(selected_nodes,:);
 alpha_j_sol_selected_rows = alpha_j_sol(selected_nodes,:);
 
 fprintf('\n=================================\n');
-fprintf('  Time Evaluation using TOE Centrality for (alpha_j = 1) in Example 1\n');
+fprintf('  Time Evaluation using *-Total Communicability for (alpha_j = 1) in Example 1\n');
 fprintf('---------------------------------\n');
 fprintf('  Nodes |  t_0  |  t_1  |  t_2  |  t_3  |  t_4  |  t_5  |  t_6  |  t_7  |  t_8  |  t_9\n');
 fprintf('---------------------------------------------------\n');
@@ -159,7 +159,7 @@ for r = 1:length(selected_nodes)
 end
 
 fprintf('\n=================================\n');
-fprintf('  Time Evaluation using TOE Centrality for (alpha_j = 1) in constant case\n');
+fprintf('  Time Evaluation using *-Total Communicability for (alpha_j = 1) in constant case\n');
 fprintf('---------------------------------\n');
 fprintf('  Nodes |  t_0  |  t_1  |  t_2  |  t_3  |  t_4  |  t_5  |  t_6  |  t_7  |  t_8  |  t_9\n');
 fprintf('---------------------------------------------------\n');
@@ -169,7 +169,7 @@ for r = 1:length(selected_nodes)
 end
 
 fprintf('\n=================================\n');
-fprintf('  Time Evaluation using TOE Centrality for (alpha_j = j) in Example 1\n');
+fprintf('  Time Evaluation using *-Total Communicability for (alpha_j = j) in Example 1\n');
 fprintf('---------------------------------\n');
 fprintf('  Nodes |  t_0  |  t_1  |  t_2  |  t_3  |  t_4  |  t_5  |  t_6  |  t_7  |  t_8  |  t_9\n');
 fprintf('---------------------------------------------------\n');
@@ -179,7 +179,7 @@ for r = 1:length(selected_nodes)
 end
 
 fprintf('\n=================================\n');
-fprintf('  Time Evaluation using TOE Centrality for (alpha_j = j) in constant case\n');
+fprintf('  Time Evaluation using *-Total Communicability for (alpha_j = j) in constant case\n');
 fprintf('---------------------------------\n');
 fprintf('  Nodes |  t_0  |  t_1  |  t_2  |  t_3  |  t_4  |  t_5  |  t_6  |  t_7  |  t_8  |  t_9\n');
 fprintf('---------------------------------------------------\n');
@@ -189,7 +189,7 @@ for r = 1:length(selected_nodes)
 end
 
 fprintf('\n=================================\n');
-fprintf('  Time Evaluation using TOE Centrality for (alpha_j = j) in empty case\n');
+fprintf('  Time Evaluation using *-Total Communicability for (alpha_j = j) in empty case\n');
 fprintf('---------------------------------\n');
 fprintf('  Nodes |  t_0  |  t_1  |  t_2  |  t_3  |  t_4  |  t_5  |  t_6  |  t_7  |  t_8  |  t_9\n');
 fprintf('---------------------------------------------------\n');
@@ -199,7 +199,7 @@ for r = 1:length(selected_nodes)
 end
 
 fprintf('\n=================================\n');
-fprintf('  Time Evaluation using TOE Centrality for (alpha_j = j) in empty case\n');
+fprintf('  Time Evaluation using *-Total Communicability for (alpha_j = j) in empty case\n');
 fprintf('---------------------------------\n');
 fprintf('  Nodes |  t_0  |  t_1  |  t_2  |  t_3  |  t_4  |  t_5  |  t_6  |  t_7  |  t_8  |  t_9\n');
 fprintf('---------------------------------------------------\n');
@@ -224,7 +224,7 @@ fV = lagrange_cardinal_basis(rescaled_points); % fV{j} is the handle for L_{j-1}
 
 disp("Lagrangian polynomials calculated");
 
-% In the code bellow we solve the TOE centrality for 
+% In the code bellow we solve the *-Total Communicability for 
 % alpha_j = 1 and alpha_j = j
 alpha_one_sol = interpolation_solver(N,m,rescaled_points,temporal_matrices,fV,0);
 alpha_j_sol = interpolation_solver(N,m,rescaled_points,temporal_matrices,fV,1);
@@ -241,7 +241,7 @@ relative_errors_poly = vecnorm(exact_solutions_poly - alpha_one_sol) ./ vecnorm(
 % Set of nodes we want to study
 important_nodes = [9, 12, 67, 431, 557, 1624];
 
-% Function that calculates receiver centralities 
+% Function that calculates broadcast centralities 
 % for Katz and matrix exponential 
 % + it creates plots of the temporal evaluation of the nodes
 temporal_node_evolution(N, temporal_matrices, alpha_one_sol, alpha_j_sol, important_nodes, points)
@@ -276,3 +276,4 @@ end
 
 % Add a single x-label for the entire figure
 xlabel('Time (t)');
+
